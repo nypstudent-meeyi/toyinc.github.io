@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+JoyInc - Contact Us
+</title>
+
+<style>
+.logonavsettings {
+	text-align: center;
+}
+
+.firsttable {
+	font-family: Comic Sans MS;
+	background-color: #E88931;
+	color: #E831B9;
+}
+
+
+form {
+	font-family: Arial;
+}
+
+#submit {
+	font-family: cursive;
+	border-radius: 12px; 
+	padding: 5px 10px;
+	background-color: #d76c6c;
+}
+
+a:link, a:visited {
+  color: green;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.active {
+	background-color: aquamarine;
+}
+
+</style>
+
+<link href="contactuscss.css" rel="stylesheet">
+</head>
+<body>
+	<table style="width: 100%; border: 0" class="firsttable">
+		<tr class="logonavsettings">
+			<td>
+				<img src="joyinclogo.png" style="height:60px; background-color:white;">
+			</td>
+			
+			<td >
+				<a link href="home.html">Home</a>
+			</td>
+			
+			<td>
+				<a link href="feedbackpurchase.html">Feedback/Purchase</a>
+			</td>
+			
+			<td>
+				<a link href="products.html">Products</a>
+			</td>
+			
+			<td class="active">
+				<a link href="contact_us.html">Contact Us</a>
+			</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<th style="font-size:4vw; color:black">Contact Us</th>
+		</tr>
+	</table>
+
+	<table class="standardtable">
+		<tr>
+			<th style="font-size:3vw;">Our Store</th>
+		</tr>
+
+		<tr>
+			<td>JoyInc @ Causeway Point</td>
+			<td rowspan="7"><img src="JoyInc_store.jpeg" width="40%"></td>
+		</tr>
+
+		<tr>
+			<td>1 Woodlands Square #01-11/K02 Causeway Point 738099</td>
+		</tr>
+
+		<tr>
+			<td>Business Hours:</td>
+		</tr>
+
+		<tr>
+			<td>Monday to Friday excluding Public Holidays:</td>
+		</tr>
+
+		<tr>
+			<td>11 am to 6 pm</td>
+		</tr>
+
+		<tr>
+			<td>Saturday and Sunday including Public Holidays:</td>
+		</tr>
+
+		<tr>
+			<td>10.30 am to 6.30 pm</td>
+		</tr>
+	</table>
+<br>
+	<table class="standardtable">
+		<tr>
+			<th style="font-size:1.8vw">JoyInc Customer Support team assists with queries regarding the purchase of its products and services.</td>
+		</tr>
+
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+
+		<tr>
+			<td>Phone: 8652 9248</td>
+		</tr>
+
+		<tr>
+			<td>Phone Operating Hours:</td>
+		</tr>
+
+		<tr>
+			<td>Monday to Friday excluding Public Holidays:</td>
+		</tr>
+
+		<tr>
+			<td>11.30am to 5 pm</td>
+		</tr>
+
+		<tr>
+			<td>Saturday and Sunday including Public Holidays:</td>
+		</tr>
+
+		<tr>
+			<td>11 am to 5.30pm</td>
+		</tr>
+	</table>
+
+	<table class="standardtable" id="contactform">
+		<form action="contactusprocessform.html" method="post">
+			<tr>
+				<td>
+					Name: <input type="text" name="name" required="required">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Email: <input type="email" required="required">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div style="position: absolute; position:relative;">
+					Query:</div> <textarea rows="10" cols="30"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<input type="submit" value="Submit" id="submit">
+				</td>
+			</tr>
+		</form>
+	</table>
+</body>
+</html>

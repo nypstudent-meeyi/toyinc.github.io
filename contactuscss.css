@@ -1,0 +1,25 @@
+#contactform {
+    background-color: aliceblue;
+
+}
+
+body {
+    background-color:peachpuff;
+}
+
+.standardtable{
+	font-family: 'Gill Sans MT';
+	text-align: left;
+	border: 0.1vw solid;
+	width: 1500px; 
+	height: 250px; 
+    color: #E831B9
+}
+
+th {
+    color: #d76c6c
+}
+
+td {
+    font-size: 1.5vw;
+}
