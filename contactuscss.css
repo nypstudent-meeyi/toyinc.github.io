@@ -23,3 +23,50 @@ th {
 td {
     font-size: 1.5vw;
 }
+
+.logonavsettings {
+	text-align: center;
+}
+
+.firsttable {
+	font-family: Comic Sans MS;
+	background-color: #E88931;
+	color: #E831B9;
+}
+
+
+form {
+	font-family: Arial;
+}
+
+#submit {
+	font-family: cursive;
+	border-radius: 12px; 
+	padding: 5px 10px;
+	background-color: #d76c6c;
+}
+
+a:link, a:visited {
+  color: green;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.active {
+	background-color: aquamarine;
+}
