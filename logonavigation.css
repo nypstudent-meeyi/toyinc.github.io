@@ -1,52 +1,45 @@
-.nav-bar {
+body {
+  background-color:peachpuff;
+} // This is my whole page's background-color
+
+.navbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  gap: 15px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: peachpuff;
+  flex-wrap: wrap;
+}
+
 
 .logo {
   height: 60px;
+  margin-right: 20px;
 }
 
-nav a {
+.navbar a {
   font-family: Comic Sans MS;
   color: #E831B9;
   text-decoration: none;
-  margin-left: 15px;
   padding: 10px;
   background-color: antiquewhite;
+  border-radius: 8px;
 }
 
-nav a.active {
-  background-color: palegoldenrod;
-}
-
-a:link, a:visited {
-  color: green;
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 25px;
-  text-align: center;
-  text-decoration: none;
+.navbar a.active {
+  background-color: rgb(196, 244, 228);
 }
 
 a:hover {
-  color: red;
-  background-color: antiquewhite;
+  color:red;
   text-decoration: underline;
-}
-
-a:active {
-  color: yellow;
-  background-color: antiquewhite;
-  text-decoration: underline;
-}
-
-.active {
-	background-color: palegoldenrod;
-}
-
-body {
-  background-color:peachpuff;
 }
