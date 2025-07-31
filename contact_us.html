@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
-	JoyInc - Contact Us
+JoyInc - Contact Us
 </title>
 
+<style>
+.logonavsettings {
+	text-align: center;
+}
+
+.firsttable {
+	font-family: Comic Sans MS;
+	background-color: #E88931;
+	color: #E831B9;
+}
+
+
+form {
+	font-family: Arial;
+}
+
+#submit {
+	font-family: cursive;
+	border-radius: 12px; 
+	padding: 5px 10px;
+	background-color: #d76c6c;
+}
+
+a:link, a:visited {
+  color: green;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.active {
+	background-color: aquamarine;
+}
+
+</style>
+
 <link href="contactuscss.css" rel="stylesheet">
-	</head>
-	
-	<body>
-		<table style="width: 100%; border: 0" class="firsttable">
+</head>
+<body>
+	<table style="width: 100%; border: 0" class="firsttable">
 		<tr class="logonavsettings">
 			<td>
 				<img src="joyinclogo.png" style="height:60px; background-color:white;">
@@ -32,15 +81,15 @@
 				<a link href="contact_us.html">Contact Us</a>
 			</td>
 		</tr>
-		</table>
+	</table>
 
-		<table>
+	<table>
 		<tr>
 			<th style="font-size:4vw; color:black">Contact Us</th>
 		</tr>
-		</table>
+	</table>
 
-		<table class="standardtable">
+	<table class="standardtable">
 		<tr>
 			<th style="font-size:3vw;">Our Store</th>
 		</tr>
@@ -73,9 +122,9 @@
 		<tr>
 			<td>10.30 am to 6.30 pm</td>
 		</tr>
-		</table>
+	</table>
 <br>
-		<table class="standardtable">
+	<table class="standardtable">
 		<tr>
 			<th style="font-size:1.8vw">JoyInc Customer Support team assists with queries regarding the purchase of its products and services.</td>
 		</tr>
@@ -107,10 +156,10 @@
 		<tr>
 			<td>11 am to 5.30pm</td>
 		</tr>
-		</table>
+	</table>
 
-		<table class="standardtable" id="contactform">
-			<form action="contactusprocessform.html" method="post">
+	<table class="standardtable" id="contactform">
+		<form action="contactusprocessform.html" method="post">
 			<tr>
 				<td>
 					Name: <input type="text" name="name" required="required">
@@ -135,7 +184,7 @@
 					<input type="submit" value="Submit" id="submit">
 				</td>
 			</tr>
-			</form>
-		</table>
-	</body>
+		</form>
+	</table>
+</body>
 </html>
