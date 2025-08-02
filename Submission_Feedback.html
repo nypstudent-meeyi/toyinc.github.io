@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <title>Feedback Form Submitted</title>
+    <link href="Submitcss.css" rel="stylesheet">
+    <style>
+        table{
+        border: 5px solid rgb(100, 100, 255); 
+        align-self : center; 
+        width: 75%;
+        min-width: 450px;
+        max-width: 900px;
+        font-family: Gill Sans MT;
+        margin: 0 auto;
+        position: absolute;
+        top: 25vh;
+        left: calc(50vw - 37.5%);
+        
+        }
+        #Row_1{
+            font-size: 1.8em;
+            text-align: center;
+            font-family: Ink Free;
+            background-color: lightgray;
+        }
+        td{
+            background-color: ghostwhite;
+            font-size: 1.4em;
+            font-family: Gill Sans MT;
+        }
+        .Response{
+            font-size: 1em;
+            font-family: Lucida Console;
+            width: 30%;
+        }
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let Formdata = location.search.substring(1);
+        Formdata = decodeURIComponent(Formdata.replace(/\+/g,' '));
+        let FormArray = Formdata.split("&");
+        FormArray.forEach((pair, index) =>{
+            let parts = pair.split("=");
+            let value = parts[1] || "N/A";
+
+            let Cell = document.getElementById((index + 1).toString());
+
+            if (Cell) {
+                Cell.textContent = value;
+                
+            };
+        });
+    });
+
+    </script>
+</head>
+<body>
+    <p id="Header">Your feedback has been submitted.</p>
+    <table>
+        <tr>
+            <td id="Row_1" colspan="2">Your Response</td>
+        </tr>
+        <tr>
+            <td>How was the experience of purchasing using our website?</td>
+            <td class="Response" id="1">&nbsp1</td>
+        </tr>
+        <tr>
+            <td>Why was the experience of purchasing good/bad?</td>
+            <td class="Response" id="2">&nbsp2</td>
+        </tr>
+        <tr>
+            <td>Any additional feedback?</td>
+            <td class="Response" id="3">&nbsp3</td>
+        </tr>
+    </table>
+    <button type ="button" href="Homepage.html">Return to home</button>
+</body>

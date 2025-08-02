@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<head>
+    <title>Purchase Form</title>
+<style>
+    body {
+        background-color : peachpuff;
+    }
+    button{
+        font-family: Cascadia Code;
+    }
+    #Form_Header{
+        background-color: blue;
+        text-align: center;
+        font-family: Ink Free;
+        font-size: 4.333vw;
+        padding: 0.2em;
+
+
+    }
+    #Submit_Form{
+        background-color: grey;
+        width: 13.89vw;
+        height: 3.472vw;
+        min-width: 100px;
+        min-height: 25px;
+        max-width: 250px;
+        max-height: 62.5px;
+    }
+    #Total_Row{
+        background-color: white;
+    }
+    #Product_Table{
+        border: 5px solid rgb(100, 100, 255); 
+        align-self : center; 
+        width: 62.5%;
+        min-width: 450px;
+        max-width: 900px;
+        font-family: Gill Sans MT;
+        margin: 0 auto;
+    }
+    #Top_Row{
+        background-color: rgb(150, 150, 255);
+    }
+    .P_Text{
+        font-size: 1.8vw;
+
+    }
+    h3{
+        font-family: Gill Sans MT;
+    }
+    .text{
+        font-size: 2.2vw;
+        font-family: Gill Sans MT;
+    }
+    label{
+        font-size: 1.8vw;
+        font-family: Consolas;
+    }
+    input{
+        font-family: Lucida Console;
+    }
+</style>
+<script>
+        const prices = {
+            1: 17.99 ,
+            2: 16.49 ,
+            3: 39.99 ,
+            4: 34.99 ,
+            5: 11.99 ,
+            6: 7.99};
+    document.addEventListener('DOMContentLoaded', function(){
+        const DeliAdd = document.getElementById('Deli_Add');
+        const AddressValue = document.getElementById('Deli_Add').value;
+        const DeliHome = document.getElementById('Deli_0');
+        const DeliStore = document.getElementById('Deli_1');
+        const DeliSch = document.getElementById('Deli_Date');
+        const Date0 = document.getElementById('Date_date');
+        const AddProductBut = document.getElementById('Product_Add');
+        const CashPayBut = document.getElementById("Pay_Cash");
+        const CardPayBut = document.getElementById("Pay_Card");
+        const SubmitButton = document.getElementById("Submit_Form")
+
+        SubmitButton.addEventListener("click", function(e) {
+            const Tbody = document.querySelector("#Product_Table tbody");
+            let TbodyLen = Tbody.rows.length;
+            
+            if (TbodyLen < 1){
+                e.preventDefault();
+                alert("There is no item in the cart. Please add an item before submitting.");
+            };
+        });
+
+
+        const DefaultOptions = Array.from(document.querySelectorAll("#Item_List option")).map(opt => ({
+            value: opt.value,
+            text: opt.text
+        }));
+
+         AddProductBut.addEventListener("click", function(){
+            TableAdder();
+        });
+
+        function TableAdder(){
+            const select = document.getElementById("Item_List");
+            const selectIndex = select.selectedIndex;
+            if (selectIndex === -1) return;
+
+            const selectedOption = select.options[selectIndex];
+            const selectedValue = selectedOption.value;
+            const selectedText = selectedOption.text;
+
+            select.remove(selectIndex);
+            const row = Tbody.insertRow();
+
+            const ProductCell = row.insertCell(0);
+            ProductCell.textContent = selectedText;
+            ProductCell.dataset.value = selectedValue;
+            ProductCell.style.width = "55%";
+
+            const ButtonCell = row.insertCell(1);
+            ButtonCell.colSpan = "2";
+            const Addbutton = document.createElement("button");
+            const Subbutton = document.createElement("button");
+            Addbutton.classList.add("Add_Product");
+            Subbutton.classList.add("Remove_Product");
+            Addbutton.textContent = "+";
+            Subbutton.textContent = "-";
+            ButtonCell.appendChild(Addbutton);
+            ButtonCell.appendChild(Subbutton);
+
+
+            const quantityCell = row.insertCell(2);
+            quantityCell.textContent = "1";
+            quantityCell.classList.add("Quantity");
+
+
+            const Pricecell = row.insertCell(-1);
+            Pricecell.textContent = "$0.00";
+            Pricecell.style.width = "10%";
+            Pricecell.classList.add("Price");
+            Pricecell.dataset.index= selectedValue;
+
+            const Deletecell = row.insertCell(-1);
+            const Delbutton = document.createElement("button");
+            Delbutton.textContent = "Remove Product";
+            Delbutton.classList.add("Delete_Product");
+            Delbutton.onclick = function () {
+                OptionsRestore(ProductCell.dataset.value, ProductCell.textContent)
+            }
+            Deletecell.appendChild(Delbutton);
+            Deletecell.style.width = "10%";
+
+            PriceUpdater(row, selectedValue);
+        }
+
+        function OptionsRestore(value, text){
+            const select = document.getElementById("Item_List");
+            const NewOption = document.createElement("option");
+
+            NewOption.value = value;
+            NewOption.text = text;
+
+            const OriIndex = DefaultOptions.findIndex(opt => opt.value === value);
+
+            let Insert = false;
+            for (let i = 0; i < select.options.length; i++){
+                const CurOptionVal = select.options[i].value;
+                const CurOriginalIndex = DefaultOptions.findIndex(opt => opt.value === CurOptionVal);
+
+                if (OriIndex < CurOriginalIndex) {
+                    select.insertBefore(NewOption, select.options[i]);
+                    Insert = true;
+                    break;
+                }
+            }
+
+            if(!Insert) {                     //Failsafe
+                select.appendChild(NewOption); 
+            }
+        }
+        function PriceUpdater(row, id) {
+        const Trow = row;
+        const Price = prices[id];
+        const cellPrice = Trow.querySelector(".Price");
+        let CellPrice = cellPrice.textContent;
+        const QuanCell = Trow.querySelector(".Quantity");
+        let Quan = QuanCell.textContent;
+        let Cost = (Price * Quan).toFixed(2);
+        cellPrice.textContent = `$${Cost}`;
+
+        TotalAdder();
+
+    }
+    function TotalAdder()   {
+        let total = 0;
+        let placeholder = 0;
+        document.querySelectorAll("td[data-index]").forEach(Pricecell => {
+            placeholder = Pricecell.textContent.replace('$', '').trim();
+            const text = parseFloat(placeholder);
+            total += isNaN(text) ? 0: text;
+        });
+        const totalCell = document.getElementById("Total");
+        total = (Math.round(total * 100)/100).toFixed(2);
+        totalCell.textContent = "$" + total;
+    }
+
+        const Tbody = document.querySelector("#Product_Table tbody");
+        
+        Tbody.addEventListener("click", function(e) {
+        const button = e.target;
+        const Nrow = button.closest("tr");
+
+        if (button.classList.contains("Add_Product")) {
+            const QuantityCell = Nrow.querySelector(".Quantity");
+            const PriceCel = Nrow.querySelector(".Price");
+            const Priceid = parseInt(PriceCel.dataset.index);
+            QuantityCell.textContent = parseInt(QuantityCell.textContent) + 1;
+            PriceUpdater(Nrow, Priceid);
+        }
+        if (button.classList.contains("Remove_Product")) {
+            const QuantityCell = Nrow.querySelector(".Quantity");
+            const PriceCel = Nrow.querySelector(".Price");
+            const Priceid = parseInt(PriceCel.dataset.index);
+            if (QuantityCell.textContent > 1){
+            QuantityCell.textContent = parseInt(QuantityCell.textContent) - 1;
+            PriceUpdater(Nrow, Priceid);
+            }
+            else{
+                QuantityCell.textContent = "1";
+                PriceUpdater(Nrow, Priceid);
+            }
+        }
+        if (button.classList.contains("Delete_Product")) {
+            Nrow.remove();
+            TotalAdder();
+
+        }
+
+        });
+        
+        function InputUpdate(){
+            if (DeliHome.checked){
+                DeliAdd.disabled = false;
+                CashPayBut.disabled = true;
+                if (CashPayBut.checked){
+                    CardPayBut.checked = true;
+                }
+            }
+            if (DeliStore.checked){
+                DeliAdd.value = "\u00A0"
+                DeliAdd.disabled = true;
+                CashPayBut.disabled = false;
+                
+            }
+            DeliSch.addEventListener('change', () => {
+                if (DeliSch.checked){
+                    Date0.disabled = false;
+                    DateAdder();
+                }
+                else{
+                    Date0.disabled = true;
+                }
+            })
+        }
+        DeliHome.addEventListener('change',InputUpdate);
+        DeliStore.addEventListener('change', InputUpdate);
+        DeliSch.addEventListener('change', InputUpdate);
+
+        
+       
+
+        function DateAdder(){
+            let CurrentDate = Date0.value;
+            const InputDate = CurrentDate ? new Date(CurrentDate) : new Date('1900-01-01');
+            let date = new Date(); 
+            date.setDate(date.getDate() + 7); 
+            if (InputDate.getTime() < date.getTime()){
+                Date0.value = date.toISOString().split('T')[0];
+            }
+        }
+
+        DateAdder();
+        InputUpdate();
+        Date0.disabled = true;
+        CardPayBut.checked = true;
+    });
+   
+</script>
+<link href="logonavigation.css" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-wrapper">
+ 		 <img src="joyinclogo.png" alt="JoyInc Logo" class="logo">
+  			<nav class="navbar">
+    		<a href="homepage.html">Home</a>
+		<a href="products.html">Products</a>
+		<a class="active" href="Purchase_Form.html">Purchase Here!</a>
+		<a href="Feedback_Form.html">Feedback</a>
+   		<a href="contact_us.html">Contact Us</a> 
+  			</nav>
+	</div>
+    <p id="Form_Header">JoyInc Product purchase form</p>
+    <div class="List">
+        <h2 style="font-family: High Tower Text;">Products:</h2>
+        <select id="Item_List" size="6" style="font-family: Cascadia Code; min-width: 200px;">
+            <option value = "1">Seal Plush</option>
+            <option value = "2">Dog Plush</option>
+            <option value = "3">Batman Figurine</option>
+            <option value = "4">Supermax Figurine</option>
+            <option value = "5">Lighting Macquren Car</option>
+            <option value = "6">Hotwheels Car</option>
+        </select>
+        <br><button type="button" id="Product_Add" style="background-color: floralwhite;">Add product</button>
+        <table id="Product_Table">
+        <thead>
+            <tr id="Top_Row">
+                <td style="width: 55%;">Product/Service name</td>
+                <td colspan = "3" style="text-align: right;">Quantity</td>
+                <td style="width: 10%; text-align: center;">Price</td>
+                <td style="width: 10%;">&nbsp</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tbody>
+            <tr id="Total_Row">
+                <td colspan = "4">Total:</td>
+                <td colspan = "2" id="Total">$0.00</td>
+            </tr>
+        </tbody>
+        </table><br>
+    </div>
+    <div class="text">
+        <form action = "Submission.html">
+            <p>How would you like your products delivered?</p>
+        
+            <p><input type="radio" name="delivery" value="home" id="Deli_0" required checked>
+                <label for="Deli_0">I would like to have the products delivered to my home.</label><br>
+            <input type="radio" name="delivery" value="store" id="Deli_1">
+                <label for="Deli_1">I would like to pick up the products in-store.</label></p><br>
+        
+            <p>If you selected to have your products delivered to your home, please input your address below:</p>
+                <p class="P_Text">Address:&nbsp&nbsp<input type="text" name="Address" id="Deli_Add"  placeholder="Input address here">
+                    <br><br><br><br></p>
+        
+            <p>Would you like to schedule your delivery?</p>
+                <p><input type="checkbox" name="Date" value="Date_added" id="Deli_Date">
+                    <label for="Deli_Date">I would like to schedule my delivery date.</label></p>
+        
+            <p>Please input the date that you would want the products to be delivered (min. 1 week in advance):</p>
+                <p class="P_Text">Delivery Date:&nbsp&nbsp<input type="date" name="date" id="Date_date" style="width: 17.5%;"></p>
+        
+            <p>Please input your email for us to notify you when your products arrive/are ready for collection:</p>
+                <p class="P_Text">Email:&nbsp&nbsp<input type="email" name="email_Input" id="Email" style="width: 20%" placeholder="examplename@email.com" required>
+                    <br><br><br></p>
+        
+            <p>Please Select your payment type<br>
+            <input type="radio" name="payment" id="Pay_Cash" required>
+                <label for="Pay_Cash">Cash (For store pickup only)</label><br>
+            <input type="radio" name="payment" id="Pay_Card">
+                <label for="Pay_Card">Credit Card</label><br>
+            <input type="radio" name="payment" id="Pay_Online">
+                <label for="Pay_Online">Online paying methods</label><br>
+            </p>
+        </div>
+        
+        <button type="submit" id="Submit_Form">Submit Form</button>
+    </form>
+</body>

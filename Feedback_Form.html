@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        body{
+            background-color: peachpuff;
+        }
+        #Header{
+            background-color: blue;
+            text-align: center;
+            font-family: Ink Free;
+            font-size: 4.333vw;
+            padding: 0.2em;
+    }
+       .Feedback{
+        text-align: left;
+        font-family: Gill Sans MT;
+        width: 50vw;
+        position: absolute;
+        left: 30vw;
+        min-width: 300px;
+    }
+       .text{
+        width: 40vw;
+        min-width: 200px;
+        font-family: Lucida Console;
+    }
+       td{
+        min-width: fit-content;
+        height: fit-content;
+    }
+       button{
+        height: fit-content;
+        width: fit-content;
+    }
+        p{
+        font-size: 1.5em;
+    }
+        .input_txt{
+        font-family: Lucida Console;
+        font-size: large;
+    }
+    #Rating{
+        font-family: Lucida Console;
+        font-size: large;
+    }
+    label{
+        width: fit-content;
+    }
+    button{
+        background-color: grey;
+        width: 15vw;
+        height: 3.472vw;
+        min-width: 100px;
+        min-height: 25px;
+        max-width: 250px;
+        max-height: 62.5px;
+        font-family: Cascadia Code;
+    }
+    </style>
+    <link href="logonavigation.css" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-wrapper">
+ 		 <img src="joyinclogo.png" alt="JoyInc Logo" class="logo">
+  			<nav class="navbar">
+    		<a href="homepage.html">Home</a>
+		<a href="products.html">Products</a>
+		<a href="Purchase_Form.html">Purchase Here!</a>
+		<a class="active" href="Feedback_Form.html">Feedback</a>
+   		<a href="contact_us.html">Contact Us</a>
+  			</nav>
+		</div>
+    <p id="Header">Feedback Form</p>
+    <form method="get" action="Submission_Feedback.html">
+    <div class="Feedback">
+        <table style="border:0 solid peachpuff;">
+            <tr>
+                <td><p>How was the experience of purchasing using our website?</p></td>
+            </tr>
+            <tr>
+                <td><div id="Rating">
+                        <input type="radio" name="Rating" value="Very Bad" id="VB"><label for="VB">Very Bad</label><br>
+                        <input type="radio" name="Rating" value="Bad" id="B"><label for="B">Bad</label><br>
+                        <input type="radio" name="Rating" value="Average" id="A"><label for="A">Average</label><br>
+                        <input type="radio" name="Rating" value="Good" id="G"><label for="G">Good</label><br>
+                        <input type="radio" name="Rating" value="Very Good" id="VG"><label for="VG">Very Good</label><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Why was the experience of purchasing good/bad?</p></td>
+            </tr>
+            <tr>
+                <td><textarea rows="15" cols="20"  name="Feedback" class="text" required placeholder="Write here"></textarea></td>
+            </tr>
+            <tr>
+                <td><p>Any additional feedback?</p></td>
+            </tr>
+            <tr>
+                <td><textarea rows="15" cols="20" name="AdditionalFeedback" class="text"  placeholder="Write feedback here..."></textarea><br></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Submit Feedback</button></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
