@@ -3,6 +3,25 @@
     <head> 
         <title>Contact Us Query form completed</title>
         <link href="contactuscss.css" rel="stylesheet">
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let Formdata = location.search.substring(1);
+        Formdata = decodeURIComponent(Formdata.replace(/\+/g,' '));
+        let FormArray = Formdata.split("&");
+        FormArray.forEach((pair, index) =>{
+            let parts = pair.split("=");
+            let value = parts[1] || "N/A";
+
+            let Cell = document.getElementById((index + 1).toString());
+
+            if (Cell) {
+                Cell.textContent = value;
+                
+            };
+        });
+    });
+
+    </script>
     </head>
 
 <body>
@@ -20,5 +39,6 @@
 		
     <h1>Your Query have been submitted and received. We'll get back to you within 5 business days.</h1>
 </body>
+
 
 </html>
