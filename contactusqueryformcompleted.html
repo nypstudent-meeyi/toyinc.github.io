@@ -6,7 +6,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         let Formdata = location.search.substring(1);
-        Formdata = decodeURIComponent(Formdata.replace(/\%20/g,' '));
+        Formdata = decodeURIComponent(Formdata.replace(/\+/g,' '));
+        console.log(Formdata)
         let FormArray = Formdata.split("&");
         FormArray.forEach((pair, index) =>{
             let parts = pair.split("=");
@@ -28,10 +29,10 @@
     		<div class="nav-wrapper">
  		 <img src="joyinclogo.png" alt="JoyInc Logo" class="logo">
   			<nav class="navbar">
-    	<a href="home.html">Home</a>
-		<a href="products.html">Products</a>
-		<a href="purchaseform.html">Purchase Here!</a>
-		<a href="feedbackform.html">Feedback</a>
+    	<a href="Homepage.html">Home</a>
+		<a href="ProductPage.html">Products</a>
+		<a href="Purchase_Form.html">Purchase Here!</a>
+		<a href="Feedback_Form.html">Feedback</a>
    		<a href="contact_us.html">Contact Us</a>
   			</nav>
 
@@ -59,6 +60,5 @@
 
 
 </html>
-
 
 
