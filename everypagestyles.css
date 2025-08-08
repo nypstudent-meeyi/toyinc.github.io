@@ -1,0 +1,228 @@
+body {
+  background-color:peachpuff;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: peachpuff;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  font-family: Comic Sans MS;
+  color: #E831B9;
+  text-decoration: none;
+  padding: 10px;
+  background-color: antiquewhite;
+  border-radius: 8px;
+}
+
+.navbar a.active {
+  background-color: rgb(196, 244, 228);
+}
+
+a:hover {
+  color:red;
+  text-decoration: underline;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.headingtitleall {
+  font-size: 4vw;
+  font-family: Ink Free;
+  background-color: rgb(163, 163, 248);
+  text-align:center;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+---- Home Page
+.info {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2.homepage {
+    font-size: 2.5vw;
+    color:black;
+    margin-top: 20px;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+blockquote { 
+    font-style: italic;
+    font-size: 20px;
+    color: #555;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 2px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.hbq {
+  background-color: #f4efef;
+}
+
+p.homepage{ 
+    font-family: 'Times New Roman', Times, serif; 
+    color:darkblue;
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+h1.homepage{
+    text-align: center; 
+    color: rgb(120,0,0);
+    font-size: 32px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif；
+}
+
+
+
+
+#contactform {
+  background-color: aliceblue;
+  font-family: arial;
+
+}
+
+.cstandardtable{
+	font-family: 'Gill Sans MT';
+  text-align: left;
+  border: 0.1vw solid;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  color: #E831B9
+}
+
+img#cjis {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    font-size: 1rem;
+  }
+  .cstandardtable {
+    width: 100%;
+  }
+  input, textarea {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive-support-text {
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+}
+
+#cth {
+  color: #d76c6c;
+}
+
+.csubmit {
+	font-family: cursive;
+	border-radius: 12px; 
+	padding: 5px 10px;
+	background-color: #d76c6c;
+}
+
+
+
+.cdsubmit {
+  background-color: aliceblue;
+  font-size: 2vw;
+  font-family: cursive;
+}
+
+.cdhsub {
+  font-family: fantasy;
+  font-size: 3vw
+}
+
+
+
+.pproductslist {
+  position: absolute;
+  left: calc(50vw - 31.75%);
+  background-color: white;
+  width: 60%;
+  padding: 15px;
+}
+
+.image-cell {
+  width: 300px;
+  height: 200px;
+  background-image: url('your-image.jpg');
+  background-size: cover; /* or contain */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+
+.image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ensures the image fills the cell without distortion */
+  display: block; /* removes unwanted spacing below image */
+}
+
+
+.return-button {
+  display: inline-block;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: Cascadia Code;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+#Row_1{
+            font-size: 1.8em;
+            text-align: center;
+            font-family: Ink Free;
+            background-color: lightgray;
+}
+
+#Header{
+            font-family: Gill Sans MT;
+            font-size: clamp(30px, 4.167vw, 70px);
+            text-align: center;
+            color: white;
+            text-shadow: 0.06em 0.06em 5px white;
+            background-color: rgb(155, 155,255);
+            left: 0;
+            right: 0;
+            position: absolute;
+            top: 5vh;
+    }

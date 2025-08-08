@@ -1,18 +1,4 @@
-body {
-            background-color : peachpuff;
-    }
-        #Header{
-            font-family: Gill Sans MT;
-            font-size: clamp(30px, 4.167vw, 70px);
-            text-align: center;
-            color: white;
-            text-shadow: 0.06em 0.06em 5px white;
-            background-color: rgb(155, 155,255);
-            left: 0;
-            right: 0;
-            position: absolute;
-            top: 5vh;
-    }
+
         button{
             font-family: Gill Sans MT;
             height: 4.167%;
