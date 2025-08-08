@@ -94,6 +94,7 @@ h1.homepage{
 
 #contactform {
   background-color: aliceblue;
+  font-family: arial;
 
 }
 
@@ -107,10 +108,52 @@ h1.homepage{
   color: #E831B9
 }
 
+img#1 {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    font-size: 1rem;
+  }
+  .standardtable {
+    width: 100%;
+  }
+  input, textarea {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive-support-text {
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+}
+
+#contactform {
+  background-color: aliceblue;
+}
+
+#cth {
+  color: #d76c6c;
+}
+
+.csubmit {
+	font-family: cursive;
+	border-radius: 12px; 
+	padding: 5px 10px;
+	background-color: #d76c6c;
+}
+
 ----- Products Page 
 
-.productslist {
+table.productslist {
   position: absolute;
   left: calc(50vw - 31.75%);
   background-color: white;
+  width: 60%;
+  padding: 15px
 }
