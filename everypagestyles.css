@@ -216,7 +216,8 @@ img#cjis {
             background-color: lightgray;
 }
 
-#Header{
+
+#sHeader{
             font-family: Gill Sans MT;
             font-size: clamp(30px, 4.167vw, 70px);
             text-align: center;
@@ -226,10 +227,28 @@ img#cjis {
             left: 0;
             right: 0;
             position: absolute;
-            top: 5vh;
     }
 
+/* feedback form page css*/
+       .fFeedback{
+        text-align: left;
+        font-family: Gill Sans MT;
+        width: 50vw;
+        position: absolute;
+        left: 30vw;
+        min-width: 300px;
+    }
 
+        #fRating{
+        font-family: Lucida Console;
+        font-size: large;
+    }
+
+        .ftext{
+        width: 40vw;
+        min-width: 200px;
+        font-family: Lucida Console;
+    }
 
 /* beginning page css */
 * {
