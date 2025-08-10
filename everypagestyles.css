@@ -36,6 +36,7 @@ body {
 a:hover {
   color:red;
   text-decoration: underline;
+
 }
 
 .logo {
@@ -94,7 +95,8 @@ h1.homepage{
     text-align: center; 
     color: rgb(120,0,0);
     font-size: 32px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif；
+    font-family: Impact;
+    font-style: italic;
 }
 
 
@@ -113,7 +115,8 @@ h1.homepage{
   width: 90%;
   max-width: 1000px;
   margin: auto;
-  color: #E831B9
+  color: #E831B9;
+  overflow-x: auto;
 }
 
 img#cjis {
@@ -178,7 +181,6 @@ img#cjis {
 .image-cell {
   width: 300px;
   height: 200px;
-  background-image: url('your-image.jpg');
   background-size: cover; /* or contain */
   background-position: center;
   background-repeat: no-repeat;
