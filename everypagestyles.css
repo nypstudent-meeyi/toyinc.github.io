@@ -302,7 +302,7 @@ nav ul li a:hover {
 .hero {
   min-height: 100vh;
   width: 100%;
-  background-image: url('joyinc_store.jpeg');
+  background-image: url('JoyInc_store.jpeg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -369,4 +369,5 @@ nav ul li a:hover {
 
 html, body {
   height: 100%;
+
 }
